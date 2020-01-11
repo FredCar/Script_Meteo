@@ -31,7 +31,6 @@ def choix_ville():
     
     r = requests.get(url, params=params)
     r = r.json()
-    print(r)
     
     try:
         insee = r['cities'][0]["insee"]
@@ -76,7 +75,7 @@ insee, ville = choix_ville()
 tmin, tmax, pluie = affichage_meteo(insee)
 
 print(f"Aujourd'hui à {ville}, la température minimale est de {tmin}, la maximale {tmax}")
-if pluie >= 0:
+if pluie > 0:
     print(f"Le cumul de pluie sera de {pluie} mm")
 else:
     print("Il ne devrait pas pleuvoir aujourd'hui")
